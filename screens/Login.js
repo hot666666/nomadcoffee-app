@@ -21,6 +21,7 @@ const LOGIN_MUTATION = gql`
 
 export default function Login() {
   const { register, handleSubmit, setValue, watch } = useForm();
+  const usernameRef = useRef();
   const passwordRef = useRef();
 
   const onCompleted = async (data) => {
@@ -60,6 +61,7 @@ export default function Login() {
   return (
     <AuthLayout>
       <TextInput
+        ref={usernameRef}
         placeholder="Username"
         returnKeyType="next"
         autoCapitalize="none"
@@ -68,6 +70,7 @@ export default function Login() {
         onChangeText={(text) => setValue("username", text)}
       />
       <TextInput
+        ref={passwordRef}
         placeholder="Password"
         secureTextEntry
         returnKeyType="done"
