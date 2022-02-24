@@ -6,7 +6,8 @@ import colors from "../colors";
 import Home from "../screens/Home";
 import Search from "../screens/Search";
 import Profile from "../screens/Profile";
-import Login from "../screens/Login";
+//import Login from "../screens/Login";
+import { View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -60,6 +61,23 @@ export default function Tabs() {
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="aperture-outline" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Camera"
+        component={View}
+        listeners={({ navigation }) => {
+          return {
+            tabPress: (e) => {
+              e.preventDefault();
+              navigation.navigate("Upload");
+            },
+          };
+        }}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="camera-outline" color={color} size={size} />
           ),
         }}
       />

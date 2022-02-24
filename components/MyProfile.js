@@ -9,6 +9,7 @@ export default function MyProfile({
   totalFollowing,
   totalFollowers,
 }) {
+  const whiteURL = "https://www.colorcombos.com/images/colors/FFFFFF.png";
   //console.log(avatarURL);
   return (
     <View>
@@ -21,7 +22,7 @@ export default function MyProfile({
           alignItems: "center",
         }}
         source={{
-          uri: avatarURL,
+          uri: !avatarURL ? whiteURL : avatarURL,
         }}
       />
       <Text style={{ color: colors.accent, fontSize: 18 }}>{username}</Text>

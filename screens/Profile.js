@@ -20,8 +20,12 @@ const MYPROFILE_QUERY = gql`
 `;
 
 export default function Profile() {
-  let isLoggedIn = useReactiveVar(isLoggedInVar);
-  const { data, loading } = useQuery(MYPROFILE_QUERY);
+  const isLoggedIn = useReactiveVar(isLoggedInVar);
+  const { data, loading, refetch } = useQuery(MYPROFILE_QUERY);
+  if (isLoggedIn) {
+    refetch();
+    //console.log(data);
+  }
 
   return isLoggedIn ? (
     <View style={{ flex: 1 }}>
@@ -34,7 +38,7 @@ export default function Profile() {
           }}
         />
       ) : (
-        MyProfile(data?.myProfile)
+        <MyProfile {...data?.myProfile} />
       )}
       <AuthButton
         onPress={logUserOut}

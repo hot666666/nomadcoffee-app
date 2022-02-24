@@ -3,6 +3,7 @@ import React from "react";
 import colors from "../colors";
 import CreateAccount from "../screens/CreateAccount";
 import Login from "../screens/Login";
+import UploadNav from "./UploadNav";
 import Tabs from "./Tabs";
 
 const Stack = createNativeStackNavigator();
@@ -22,6 +23,11 @@ export default function StackNav() {
       />
       <Stack.Screen name="CreateAccount" component={CreateAccount} />
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen
+        options={{ mode: "modal" }}
+        name="Upload"
+        component={UploadNav}
+      />
     </Stack.Navigator>
   );
 }

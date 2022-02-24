@@ -12,3 +12,6 @@ web-build/
 
 # macOS
 .DS_Store
+
+nomadcoffee-app.app/
+nomadcoffee-app-8275c01e-c075-4451-a0a2-41c613a4b75f-simulator.tar.gz

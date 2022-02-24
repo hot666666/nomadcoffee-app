@@ -25,7 +25,7 @@ export const logUserOut = async () => {
 };
 
 const httpLink = createHttpLink({
-  uri: "http://192.168.0.5:4000/graphql",
+  uri: "http://localhost:4000/graphql",
 });
 const authLink = setContext((_, { headers }) => {
   return {
